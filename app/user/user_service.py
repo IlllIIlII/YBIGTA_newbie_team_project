@@ -21,7 +21,10 @@ class UserService:
         return deleted_user
 
     def update_user_pwd(self, user_update: UserUpdate) -> User:
-        ## TODO
-        updated_user = None
+        user = self.repo.get_user_by_email(user_update.email)
+        if user is None:
+            raise ValueError("User not Found")
+        user.password = user_update.new_password
+        updated_user = self.repo.save_user(user)
         return updated_user
         

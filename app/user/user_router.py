@@ -43,11 +43,9 @@ def delete_user(user_delete_request: UserDeleteRequest, service: UserService = D
 
 @user.put("/update-password", response_model=BaseResponse[User], status_code=status.HTTP_200_OK)
 def update_user_password(user_update: UserUpdate, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    user = service.update_user_pwd(user_update)
     try:
-        # 서비스의 비밀번호 변경 로직 호출
-        updated_user = service.update_user_pwd(user_update)
-        return BaseResponse(status="success", data=updated_user, message="Password updated successfully.")
+        user = service.update_user_pwd(user_update)
+        return BaseResponse(status="success", data=user, message="User password update success.")
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=404, detail=str(e))

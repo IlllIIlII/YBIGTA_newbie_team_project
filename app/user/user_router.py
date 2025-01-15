@@ -43,6 +43,19 @@ def delete_user(user_delete_request: UserDeleteRequest, service: UserService = D
 
 @user.put("/update-password", response_model=BaseResponse[User], status_code=status.HTTP_200_OK)
 def update_user_password(user_update: UserUpdate, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    """
+    Endpoint to update the password
+
+    Args:
+        user_update (UserUpdate): An object containing the user's email and new password
+        service: The user service that performs the password update
+
+    Returns:
+        BaseResponse: A response object containing the updated user information
+
+    Raises:
+        HTTPException: If the user is not found, status code 404 is returned with the error message.
+    """
     user = service.update_user_pwd(user_update)
     try:
         user = service.update_user_pwd(user_update)

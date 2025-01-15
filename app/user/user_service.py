@@ -36,6 +36,16 @@ class UserService:
       
 
     def update_user_pwd(self, user_update: UserUpdate) -> User:
+        """
+        Updates the password of an existing user
+
+        Args:
+            user_update (UserUpdate): An object of the user
+        Returns:
+            User: The updated user object with the new password
+        Raises:
+            ValueError: User not found in the database
+        """
         user = self.repo.get_user_by_email(user_update.email)
         if user is None:
             raise ValueError("User not Found")

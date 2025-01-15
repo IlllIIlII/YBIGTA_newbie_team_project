@@ -18,15 +18,32 @@ def login_user(user_login: UserLogin, service: UserService = Depends(get_user_se
 
 @user.post("/register", response_model=BaseResponse[User], status_code=status.HTTP_201_CREATED)
 def register_user(user: User, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    """
+    Endpoint to register a new user.
+
+    This endpoint allows the registration of a new user in the system. It validates
+    if the user already exists and creates a new user if the provided email is unique.
+
+    Args:
+        user (User): The user object containing the details of the user to be registered.
+        service (UserService): The user service dependency to handle user-related operations. 
+            Injected automatically using FastAPI's `Depends`.
+
+    Returns:
+        BaseResponse[User]: A response object containing the status, newly registered user data, 
+        and a success message.
+
+    Raises:
+        HTTPException: 
+            - 400: If a user with the provided email already exists in the database.
+            - 500: If an unexpected error occurs during the registration process.
+    """
     try:
-        # 서비스의 회원가입 로직 호출
         new_user = service.regiser_user(user)
-        return BaseResponse(status="success", data=new_user, message="Registration successful.")
+        return BaseResponse(status="success", data=new_user, message="User registeration success.")
     except ValueError as e:
-        # 서비스 로직에서 발생한 오류 처리
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        # 기타 예기치 않은 오류 처리
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 

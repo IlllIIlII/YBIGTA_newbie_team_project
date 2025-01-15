@@ -8,17 +8,31 @@ class UserService:
     def login(self, user_login: UserLogin) -> User:
         user = self.repo.get_user_by_email(user_login.email)
         if not user:
-            raise ValueError("User not found")
+            raise ValueError("User not Found.")
         # 비밀번호 비교: 실제로는 해싱된 비밀번호 비교 등 보안 처리가 필요
         if user.password != user_login.password:
-            raise ValueError("Incorrect password")
+            raise ValueError("Invalid PW")
         return user
         
     def regiser_user(self, new_user: User) -> User:
         ## TODO
+        
+        """
+        Registers a new user in the system.
+
+        Args:
+            new_user (User): The user object containing the details of the new user to be registered.
+
+        Returns:
+            User: The newly registered user object.
+
+        Raises:
+            ValueError: If a user with the same email already exists in the database.
+        """
+
         existing_user = self.repo.get_user_by_email(new_user.email)
         if existing_user:
-            raise ValueError("User already exists")
+            raise ValueError("User already Exists.")
         # 새로운 사용자 생성
         new_user = self.repo.save_user(new_user)
         return new_user
@@ -27,7 +41,7 @@ class UserService:
         ## TODO   
         user = self.repo.get_user_by_email(email)
         if not user:
-            raise ValueError("User not found")
+            raise ValueError("User not found.")
         # 사용자 삭제
         deleted_user = self.repo.delete_user(user)
         if not deleted_user:

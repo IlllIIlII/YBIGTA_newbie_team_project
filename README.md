@@ -23,3 +23,4 @@ ex ) 안녕하세요! 응용통계학과 20학번 김형진입니다.
 ![push_rejected](github/push_rejected.png)
 ![merged_{MaDoKaLiF}](github/merged_{MaDoKaLiF}.png)
 ![merged_lshthegod](github/merged_lshthegod.png)
+![merged_IlllIIlII](github/merged_IlllIIlII.jpg)

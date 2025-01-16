@@ -39,7 +39,7 @@ def register_user(user: User, service: UserService = Depends(get_user_service)) 
             - 500: If an unexpected error occurs during the registration process.
     """
     try:
-        new_user = service.regiser_user(user)
+        new_user = service.register_user(user)
         return BaseResponse(status="success", data=new_user, message="User registeration success.")
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

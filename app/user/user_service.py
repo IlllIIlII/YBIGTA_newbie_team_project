@@ -6,6 +6,18 @@ class UserService:
         self.repo = userRepoitory
 
     def login(self, user_login: UserLogin) -> User:
+        """
+        Authenticates a user based on their email and password.
+
+        Args:
+            user_login (UserLogin): An object containing the user's email and password.
+
+        Returns:
+            User: The authenticated user object if the email and password match.
+
+        Raises:
+            ValueError: If the user is not found or the password is invalid.
+        """
         user = self.repo.get_user_by_email(user_login.email)
         if not user:
             raise ValueError("User not Found.")
@@ -14,7 +26,7 @@ class UserService:
             raise ValueError("Invalid PW")
         return user
         
-    def regiser_user(self, new_user: User) -> User:
+    def register_user(self, new_user: User) -> User:
         ## TODO
         
         """

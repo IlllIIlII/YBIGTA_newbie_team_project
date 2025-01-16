@@ -73,7 +73,7 @@ def delete_user(user_delete_request: UserDeleteRequest, service: UserService = D
         deleted_user = service.delete_user(user_delete_request.email)
         return BaseResponse(status="success", data=deleted_user, message="User Deletion Success.")
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=404, detail="User not Found.")
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
 

@@ -38,7 +38,25 @@ class UserService:
         return new_user
 
     def delete_user(self, email: str) -> User:
-        ## TODO   
+        """
+        Deletes a user from the system.
+
+        This method deletes an existing user based on the provided email address.
+        It ensures that the user exists before performing the deletion.
+
+        Args:
+            email (str): The email address of the user to be deleted.
+
+        Returns:
+            User: The deleted user object.
+
+        Raises:
+            ValueError: 
+                - If the user is not found in the database.
+                - If the user deletion process fails.
+            """
+            
+         
         user = self.repo.get_user_by_email(email)
         if not user:
             raise ValueError("User not found.")

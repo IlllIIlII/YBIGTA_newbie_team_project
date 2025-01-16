@@ -49,10 +49,29 @@ def register_user(user: User, service: UserService = Depends(get_user_service)) 
 
 @user.delete("/delete", response_model=BaseResponse[User], status_code=status.HTTP_200_OK)
 def delete_user(user_delete_request: UserDeleteRequest, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    """
+    Endpoint to delete a user.
+
+    This endpoint handles the deletion of a user based on the provided email address.
+    It verifies the user's existence and removes the user from the system.
+
+    Args:
+        user_delete_request (UserDeleteRequest): An object containing the email of the user to be deleted.
+        service (UserService): The user service dependency responsible for managing user operations.
+
+    Returns:
+        BaseResponse[User]: A response object containing the status, deleted user data, 
+        and a success message upon successful deletion.
+
+    Raises:
+        HTTPException: 
+            - 400: If the user is not found in the database.
+            - 500: If an unexpected error occurs during the deletion process.
+    """
     try:
-        # 서비스의 회원 삭제 로직 호출
+        
         deleted_user = service.delete_user(user_delete_request.email)
-        return BaseResponse(status="success", data=deleted_user, message="User deleted successfully.")
+        return BaseResponse(status="success", data=deleted_user, message="User Deletion Success.")
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:

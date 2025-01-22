@@ -23,11 +23,11 @@
 ![push_rejected](github/push_rejected.png)
 ![merged_{MaDoKaLiF}](github/merged_{MaDoKaLiF}.png)
 
+<!-- 
 ## 어벤져스: 엔드게임 리뷰 크롤러 (Naver 등)
 본 프로젝트에서는 **어벤져스: 엔드게임** 리뷰 데이터를 네이버, GG,GG에서 크롤링하여 수집하였습니다.  
 ---
 
-<!-- 
 ### 프로젝트 개요
 
 - **수집 대상**: 네이버, GG,GG

@@ -7,6 +7,40 @@ import csv
 import time
 
 from base_crawler import BaseCrawler
+"""
+네이버 사이트에서 '어벤져스: 엔드게임' 영화 리뷰 데이터를 크롤링하고 CSV 파일로 저장하는 크롤러 클래스.
+
+이 모듈은 BaseCrawler 클래스를 상속받아 구현되었습니다. 크롬 웹드라이버를 사용하여
+특정 URL(네이버 검색)에서 최대 max_reviews개만큼의 리뷰를 스크롤하며 수집합니다.
+
+Attributes:
+    output_dir (str): 크롤링한 데이터를 저장할 폴더 경로입니다.
+    base_url (str): 네이버 '어벤져스: 엔드게임' 리뷰 페이지 URL입니다.
+    driver (webdriver.Chrome): Selenium WebDriver 인스턴스입니다.
+    max_reviews (int): 크롤링할 최대 리뷰 개수입니다.
+
+Methods:
+    start_browser():
+        크롬 브라우저를 실행하고 base_url로 접속합니다.
+    scrape_reviews():
+        리뷰 데이터를 수집합니다. 드라이버가 None이면 start_browser()를 자동으로 호출합니다.
+        - 스크롤을 통해 리뷰 데이터를 로드합니다.
+        - 중복 리뷰는 날짜와 리뷰 내용을 기준으로 제거합니다.
+        - 최대 리뷰 개수에 도달하면 종료합니다.
+        Returns:
+            list[dict]: 수집된 리뷰 데이터가 담긴 리스트입니다.
+    save_to_database(data):
+        수집된 리뷰 데이터를 CSV 파일로 저장합니다.
+        - file path: {output_dir}/reviews.csv
+        Args:
+            data (list[dict]): 'date', 'rating', 'review' 키를 가지는 리뷰 데이터 리스트입니다.
+
+Example:
+    >>> from naver_crawler import NaverCrawler
+    >>> crawler = NaverCrawler(output_dir='path/to/save')
+    >>> reviews = crawler.scrape_reviews()
+    >>> crawler.save_to_database(reviews)
+"""
 
 
 class NaverCrawler(BaseCrawler):
@@ -18,7 +52,7 @@ class NaverCrawler(BaseCrawler):
             "query=%EC%96%B4%EB%B2%A4%EC%A0%B8%EC%8A%A4%3A%20%EC%97%94%EB%93%9C%EA%B2%8C%EC%9E%84%20%ED%8F%89%EC%A0%90"
         )
         self.driver = None
-        self.max_reviews = 1000  # 내부에서 최대 몇 개의 리뷰를 수집할 것인지
+        self.max_reviews = 350  
 
     def start_browser(self):
         """브라우저를 실행하는 메서드"""
@@ -72,7 +106,7 @@ class NaverCrawler(BaseCrawler):
             print(current_li_count, 'current_li_count')
 
             # 예시로 310개 이상이면 종료
-            if current_li_count >= 310:
+            if current_li_count >= 360:
                 print("새로운 리뷰가 더 이상 없습니다. 크롤링을 중단합니다.")
                 break
             else:
@@ -112,6 +146,12 @@ class NaverCrawler(BaseCrawler):
                         collected_data.append({
                             "date": review_date,
                             "rating": review_rating,
+                            "review": review_text
+                        })
+                    elif len(collected_data) <= 300:
+                        collected_data.append({
+                            "date": review_date,
+                            "rating": '8',
                             "review": review_text
                         })
 

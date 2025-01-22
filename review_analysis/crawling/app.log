@@ -1,0 +1,24 @@
+2025-01-15 03:12:49,264 - INFO - Starting the browser...
+2025-01-15 03:12:49,264 - INFO - ====== WebDriver manager ======
+2025-01-15 03:12:52,099 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-15 03:12:52,099 - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2025-01-15 03:12:52,240 - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 9182
+2025-01-15 03:12:52,255 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-15 03:12:52,271 - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2025-01-15 03:12:52,380 - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 9182
+2025-01-15 03:12:52,396 - INFO - There is no [win64] chromedriver "131.0.6778.264" for browser google-chrome "131.0.6778" in cache
+2025-01-15 03:12:52,396 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-15 03:12:52,396 - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2025-01-15 03:12:52,521 - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 9182
+2025-01-15 03:12:52,536 - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2025-01-15 03:12:52,646 - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/known-good-versions-with-downloads.json HTTP/1.1" 200 74068
+2025-01-15 03:12:52,724 - INFO - WebDriver version 131.0.6778.264 selected
+2025-01-15 03:12:52,724 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/win32/chromedriver-win32.zip
+2025-01-15 03:12:52,724 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/win32/chromedriver-win32.zip
+2025-01-15 03:12:52,740 - DEBUG - Starting new HTTPS connection (1): storage.googleapis.com:443
+2025-01-15 03:12:52,818 - DEBUG - https://storage.googleapis.com:443 "GET /chrome-for-testing-public/131.0.6778.264/win32/chromedriver-win32.zip HTTP/1.1" 200 8232778
+2025-01-15 03:12:52,818 - INFO - Driver downloading response is 200
+2025-01-15 03:12:57,748 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-15 03:12:57,764 - DEBUG - Starting new HTTPS connection (1): googlechromelabs.github.io:443
+2025-01-15 03:12:57,905 - DEBUG - https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 9182
+2025-01-15 03:12:58,061 - INFO - Driver has been saved in cache [C:\Users\PC\.wdm\drivers\chromedriver\win64\131.0.6778.264]

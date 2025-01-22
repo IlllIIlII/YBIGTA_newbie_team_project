@@ -27,6 +27,7 @@
 본 프로젝트에서는 **어벤져스: 엔드게임** 리뷰 데이터를 네이버, GG,GG에서 크롤링하여 수집하였습니다.  
 ---
 
+<!-- 
 ### 프로젝트 개요
 
 - **수집 대상**: 네이버, GG,GG
@@ -59,4 +60,4 @@ python main.py -o {output directory} --all
 #### 네이버
 ```bash
 python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_project\database -c naver
-```
+``` -->

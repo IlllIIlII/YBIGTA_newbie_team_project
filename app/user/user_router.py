@@ -18,31 +18,80 @@ def login_user(user_login: UserLogin, service: UserService = Depends(get_user_se
 
 @user.post("/register", response_model=BaseResponse[User], status_code=status.HTTP_201_CREATED)
 def register_user(user: User, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    """
+    Endpoint to register a new user.
+
+    This endpoint allows the registration of a new user in the system. It validates
+    if the user already exists and creates a new user if the provided email is unique.
+
+    Args:
+        user (User): The user object containing the details of the user to be registered.
+        service (UserService): The user service dependency to handle user-related operations. 
+            Injected automatically using FastAPI's `Depends`.
+
+    Returns:
+        BaseResponse[User]: A response object containing the status, newly registered user data, 
+        and a success message.
+
+    Raises:
+        HTTPException: 
+            - 400: If a user with the provided email already exists in the database.
+            - 500: If an unexpected error occurs during the registration process.
+    """
     try:
-        # 서비스의 회원가입 로직 호출
-        new_user = service.regiser_user(user)
-        return BaseResponse(status="success", data=new_user, message="Registration successful.")
+        new_user = service.register_user(user)
+        return BaseResponse(status="success", data=new_user, message="User registeration success.")
     except ValueError as e:
-        # 서비스 로직에서 발생한 오류 처리
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        # 기타 예기치 않은 오류 처리
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
 @user.delete("/delete", response_model=BaseResponse[User], status_code=status.HTTP_200_OK)
 def delete_user(user_delete_request: UserDeleteRequest, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    """
+    Endpoint to delete a user.
+
+    This endpoint handles the deletion of a user based on the provided email address.
+    It verifies the user's existence and removes the user from the system.
+
+    Args:
+        user_delete_request (UserDeleteRequest): An object containing the email of the user to be deleted.
+        service (UserService): The user service dependency responsible for managing user operations.
+
+    Returns:
+        BaseResponse[User]: A response object containing the status, deleted user data, 
+        and a success message upon successful deletion.
+
+    Raises:
+        HTTPException: 
+            - 400: If the user is not found in the database.
+            - 500: If an unexpected error occurs during the deletion process.
+    """
     try:
-        # 서비스의 회원 삭제 로직 호출
+        
         deleted_user = service.delete_user(user_delete_request.email)
-        return BaseResponse(status="success", data=deleted_user, message="User deleted successfully.")
+        return BaseResponse(status="success", data=deleted_user, message="User Deletion Success.")
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=404, detail="User not Found.")
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 @user.put("/update-password", response_model=BaseResponse[User], status_code=status.HTTP_200_OK)
 def update_user_password(user_update: UserUpdate, service: UserService = Depends(get_user_service)) -> BaseResponse[User]:
+    """
+    Endpoint to update the password
+
+    Args:
+        user_update (UserUpdate): An object containing the user's email and new password
+        service: The user service that performs the password update
+
+    Returns:
+        BaseResponse: A response object containing the updated user information
+
+    Raises:
+        HTTPException: If the user is not found, status code 404 is returned with the error message.
+    """
     user = service.update_user_pwd(user_update)
     try:
         user = service.update_user_pwd(user_update)

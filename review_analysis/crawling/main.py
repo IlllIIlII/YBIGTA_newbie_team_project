@@ -3,12 +3,14 @@ from typing import Dict, Type
 from base_crawler import BaseCrawler
 from naver_crawler import NaverCrawler
 from imdb_crawler import ImdbCrawler
+from rottentomatoes_crawler import RottentomatoesCrawler
 
 
 # 모든 크롤링 클래스를 예시 형식으로 적어주세요. 
 CRAWLER_CLASSES: Dict[str, Type[BaseCrawler]] = {
     'naver':NaverCrawler,
     'imdb':ImdbCrawler,
+    'rottentomatoes':RottentomatoesCrawler
 }
 
 def create_parser() -> ArgumentParser:

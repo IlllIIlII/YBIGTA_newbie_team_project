@@ -107,3 +107,22 @@ python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_
 
 아래 그래프는 전처리와 FE를 마친 후의 데이터를 sunburst로 나타낸 결과입니다. 평점에 따른 리뷰의 길이를 200자 단위로 나누어 표기하였습니다.
 ![IMDb_sunburst](review_analysis/plots/IMDb_sunburst.png)
+
+#### RottenTomatoes
+
+이상치 탐색 결과입니다. 데이터에 큰 예외나 오류는 없는 것으로 보입니다.
+![EDA_inspection](review_analysis/plots/EDA_inspection.png)
+
+리뷰 평점 그래프입니다. 관객들 대다수가 높은 평점을 준 것을 알 수 있습니다.
+![rating_distribution](review_analysis/plots/rating_distribution.png)
+
+리뷰 길이를 보면 100자 미만의 리뷰를 작성한 유저는 많지 않습니다.
+![review_length_distribution](review_analysis/plots/review_length_distribution.png)
+
+관련성 있는, 자주 나오는 단어의 그래프입니다.
+![keyword_frequencies](review_analysis/plots/keyword_frequencies.png)
+
+요일별, 월별 리뷰의 개수 그래프입니다. 요일별로는 큰 차이가 없으나 금요일이 가장 많습니다.
+![week](review_analysis/plots/review_by_weekday.png)
+![month](review_analysis/plots/monthly_review_counts.png)
+

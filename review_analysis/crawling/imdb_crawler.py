@@ -92,7 +92,7 @@ class ImdbCrawler(BaseCrawler):
                 blank.append(date)
             else:
                 continue
-            # rate
+            # rating
             rate = row.find('span', attrs={'class':'ipc-rating-star--rating'})
             if rate:
                 rate = rate.get_text().strip()
@@ -114,7 +114,7 @@ class ImdbCrawler(BaseCrawler):
     def save_to_database(self, data):
         """
         Saves scraped review data to a CSV file.
-        
+
         Args:
             data (list): A list of lists where each inner list represents a single review
 
@@ -122,7 +122,7 @@ class ImdbCrawler(BaseCrawler):
             None: This method saves the data to a CSV file and does not return any value.
         """
         li = []
-        columns = ['date','rate','contents']
+        columns = ['date','rating','review']
         df = pd.DataFrame(data, columns = columns)
         li.append(df)
         df_ = pd.concat(li).reset_index(drop=True)

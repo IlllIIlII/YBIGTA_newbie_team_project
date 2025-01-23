@@ -10,7 +10,7 @@ from rottentomatoes_crawler import RottentomatoesCrawler
 CRAWLER_CLASSES: Dict[str, Type[BaseCrawler]] = {
     'naver':NaverCrawler,
     'imdb':ImdbCrawler,
-    'rottentomatoes':RottentomatoesCrawler
+    'rottentomatoes':RottenTomatoesCrawler
 }
 
 def create_parser() -> ArgumentParser:

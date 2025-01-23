@@ -87,3 +87,23 @@ python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_
 ```bash
 python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_project\database -c rottentomatoes
 ```
+
+---
+### EDA/전처리/FE 결과
+
+#### IMDb
+
+아래 그래프는 평점 분포를 나타낸 막대 그래프입니다. 10점에 특히 많은 평점이 몰렸습니다.
+![IMDb_rating](review_analysis/plots/IMDb_rating.png)
+
+아래 그래프는 리뷰 작성 년도 분포입니다. 영화 개봉 년도인 2019년에 가장 많은 리뷰가 달렸습니다.
+![IMDb_date](review_analysis/plots/IMDb_date.png)
+
+아래 그래프는 리뷰 텍스트의 길이입니다. 
+![IMDb_distribution](review_analysis/plots/IMDb_distribution.png)
+
+
+리뷰 텍스트의 길이 분석한 결과, 대부분의 리뷰는 2000자 이내에 위치하고 있으며, 일부 리뷰는 극단적으로 긴 형태(2000자 이상)로 나타났습니다. 이에 2000자 이상의 리뷰를 중앙값으로 대체하여 분석에 적합하도록 처리했습니다. 또한, 텍스트 길이를 200자 단위로 나누어 새로운 그룹 변수(length_group)를 생성했습니다.
+
+아래 그래프는 전처리와 FE를 마친 후의 데이터를 sunburst로 나타낸 결과입니다. 평점에 따른 리뷰의 길이를 200자 단위로 나누어 표기하였습니다.
+![IMDb_sunburst](review_analysis/plots/IMDb_sunburst.png)

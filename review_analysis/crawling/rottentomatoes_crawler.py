@@ -37,7 +37,7 @@ class RottenTomatoesCrawler(BaseCrawler):
 
     def scrape_reviews(self):
         """
-        리뷰 데이터를 수집하여 리스트로 반환합니다.
+        리뷰 데이터를 수집하여 리스트로 반환
 
         Returns:
             list[dict]: 수집된 리뷰 데이터 리스트
@@ -106,7 +106,6 @@ class RottenTomatoesCrawler(BaseCrawler):
             for row in data:
                 writer.writerow(row)
 
-        print(f"CSV 저장 완료: {csv_file_path}")
 
 if __name__ == "__main__":
     crawler = RottenTomatoesCrawler(output_dir="./database")

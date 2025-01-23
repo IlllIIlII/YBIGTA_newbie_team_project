@@ -107,3 +107,12 @@ python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_
 
 아래 그래프는 전처리와 FE를 마친 후의 데이터를 sunburst로 나타낸 결과입니다. 평점에 따른 리뷰의 길이를 200자 단위로 나누어 표기하였습니다.
 ![IMDb_sunburst](review_analysis/plots/IMDb_sunburst.png)
+
+#### naver
+
+아래 그래프는 리뷰 작성 년도 분포입니다. 영화 개봉 년도인 2019년에 가장 많은 리뷰가 달렸습니다.
+![IMDb_date](review_analysis/plots/number of reviews.png)
+
+아래 그래프는 키워드의 빈도입니다. 
+![IMDb_distribution](review_analysis/plots/naver_keyword frequency.png)
+

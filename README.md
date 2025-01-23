@@ -27,7 +27,7 @@ ex ) 안녕하세요! 응용통계학과 20학번 김형진입니다.
 
 
 ## 어벤져스: 엔드게임 리뷰 크롤러 (Naver 등)
-본 프로젝트에서는 **어벤져스: 엔드게임** 리뷰 데이터를 네이버, IMDb,GG에서 크롤링하여 수집하였습니다.  
+본 프로젝트에서는 **어벤져스: 엔드게임** 리뷰 데이터를 네이버, IMDb,로튼토마토에서 크롤링하여 수집하였습니다.  
 ---
 
 ### 프로젝트 개요
@@ -35,7 +35,8 @@ ex ) 안녕하세요! 응용통계학과 20학번 김형진입니다.
 - **수집 대상**: 네이버, IMDb, GG
 - **네이버 링크**: [네이버 검색](https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bkEw&pkid=68&os=2464226&qvt=0&query=%EC%96%B4%EB%B2%A4%EC%A0%B8%EC%8A%A4%3A%20%EC%97%94%EB%93%9C%EA%B2%8C%EC%9E%84%20%ED%8F%89%EC%A0%90)
 - **IMDb 링크**: [IMDb](https://www.imdb.com/title/tt4154796/reviews/?ref_=tt_ov_ururv)
-- **크롤링 규모**: 네이버 총 300건, IMDb 총 2365건, GG 총 M건의 리뷰
+- **로튼토마토 링크** [Rottentomatoes](https://www.rottentomatoes.com/m/avengers_endgame/reviews?type=user)
+- **크롤링 규모**: 네이버 총 300건, IMDb 총 2365건, 로튼토마토 총 1081건의 리뷰
 
 ---
 
@@ -49,6 +50,7 @@ ex ) 안녕하세요! 응용통계학과 20학번 김형진입니다.
 | `rating` | `"별점(10점 만점 중) 8점"`              | 10점 만점 기준으로 표시된 평점             |
 | `review` | `영화가 정말 재밌었습니다! 다시 보고 싶네요.` | 실제 사용자 리뷰 내용                      |
 
+
 #### IMDb
 크롤링을 통해 IMDb에서 수집된 데이터는 아래 3개의 컬럼으로 구성되어 있습니다.
 
@@ -58,6 +60,15 @@ ex ) 안녕하세요! 응용통계학과 20학번 김형진입니다.
 | `rating` | `9`                     | 10점 만점의 평점    |
 | `review` | `This film deserves it.`| 실제 사용자 리뷰 내용|
 ---
+
+#### 로튼토마토
+크롤링을 통해 로튼토마토에서 수집된 데이터는 아래 3개의 컬럼으로 구성되어 있습니다.
+
+| Column | 예시                                     | 설명                                       |
+|:------:|:---------------------------------------:|:------------------------------------------:|
+| `date`   | `2021-12-07`                    | 리뷰 작성일자 및 시간                      |
+| `rating` | `"3.5`              | 5점 만점 기준으로 표시된 평점             |
+| `review` | `This is a great vehicle for fan service and all the commercial success that comes with that, but it ...` | 실제 사용자 리뷰 내용 |
 
 ### 크롤링 코드 실행 방법
 
@@ -71,4 +82,8 @@ python main.py -o {output directory} --all
 #### 네이버
 ```bash
 python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_project\database -c naver
+```
+#### 로튼토마토
+```bash
+python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_project\database -c rottentomatoes
 ```

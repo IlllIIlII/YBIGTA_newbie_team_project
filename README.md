@@ -126,3 +126,15 @@ python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_
 ![week](review_analysis/plots/review_by_weekday.png)
 ![month](review_analysis/plots/monthly_review_counts.png)
 
+#### naver
+
+아래 그래프는 리뷰 작성 년도 분포입니다. 영화 개봉 년도인 2019년에 가장 많은 리뷰가 달렸습니다.
+![number_of_reviews](review_analysis/plots/number_of_reviews.png)
+
+아래 그래프는 키워드의 빈도입니다. 
+![naver_keyword_frequency](review_analysis/plots/naver_keyword_frequency.png)
+
+아래 그래프는 키워드의 빈도입니다. 
+![naver_word_clouds](review_analysis/plots/naver_word_clouds.png)
+
+언급된 단어의 빈도를 보아 '아이언맨', '마블', '어벤져스', '영화', '재미', '완벽한' 등의 단어가 많이 언급된 것을 확인할 수 있습니다. 

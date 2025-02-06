@@ -2,11 +2,11 @@ import json
 
 from typing import Dict, Optional
 
-from app.user.user_schema import User
-from app.config import USER_DATA
+# from app.user.user_schema import User
+# from app.config import USER_DATA
 
 from sqlalchemy.orm import Session
-from database.mysql_connection import SessionLocal
+from database.mysql_connection import SessionLocal, User
 
 class UserRepository:
     def __init__(self) -> None:
@@ -16,7 +16,7 @@ class UserRepository:
 
     def _load_users(self) -> Dict[str, Dict]:
         users = self.db.query(User).all()
-        return {user.email: user.model_dump() for user in users}
+        return {user.email: user.as_dict() for user in users}
 
     def get_user_by_email(self, email: str) -> Optional[User]:
         return self.db.query(User).filter(User.email == email).first()

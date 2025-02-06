@@ -138,3 +138,7 @@ python main.py -o C:\Users\PC\onedrive(yonsei)\문서\GitHub\YBIGTA_newbie_team_
 ![naver_word_clouds](review_analysis/plots/naver_word_clouds.png)
 
 언급된 단어의 빈도를 보아 '아이언맨', '마블', '어벤져스', '영화', '재미', '완벽한' 등의 단어가 많이 언급된 것을 확인할 수 있습니다. 
+
+---
+
+[Docker Hub](https://hub.docker.com/repository/docker/seohyun7/ybigta-team/general)
